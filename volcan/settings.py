@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     server_host: str = '0.0.0.0'
     server_port: int = 80
-    images_dir: str = 'volcan/images'
+    images_dir: str = 'images'
     images_url_prefix: str = '/images'
 
 

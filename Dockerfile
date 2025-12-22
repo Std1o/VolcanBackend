@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /code
 
-RUN mkdir -p /code/volcan/images
+RUN mkdir -p /code/images
 
 COPY ./requirements.txt /code/
 
