@@ -10,16 +10,16 @@ router = APIRouter()
 @router.post('/upload', response_model=UploadResponse)
 async def upload_image(
         request: Request,
-        file: UploadFile,
         service: ImageUploadService=Depends()
 ):
     try:
-        if file.content_type != "image/png":
+        content_type = request.headers.get("content-type", "")
+        if "image/png" not in content_type:
             raise HTTPException(
                 status_code=400,
                 detail="Only PNG files are allowed"
             )
-        image = await service.upload_image(file.file)
+        image = await service.upload_image(request=request)
 
         base_url = str(request.base_url).rstrip('/')
         download_url = f"{base_url}{settings.images_url_prefix}/{image.filename}"
