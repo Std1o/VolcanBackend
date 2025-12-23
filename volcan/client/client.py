@@ -25,5 +25,4 @@ async def stream_upload(file_path, url):
 async def main():
     print(await stream_upload('SMA.png', 'http://192.168.1.12:80/upload'))
 
-print(os.getcwd())
 asyncio.run(main())
