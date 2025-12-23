@@ -1,18 +1,15 @@
 import os
 import typing
 import aiofiles
-from volcan.domain.image import Image
-from volcan.settings import settings
+from volcan.constants import images_dir
 
 
 class ImageUploadService:
 
-    async def upload_image(self, filename: str, stream: typing.AsyncGenerator[bytes, None]) -> Image:
-        file_path = os.path.join(settings.images_dir, filename)
+    async def upload_image(self, filename: str, stream: typing.AsyncGenerator[bytes, None]):
+        file_path = os.path.join(images_dir, filename)
 
         # Читаем и сохраняем файл потоково
         async with aiofiles.open(file_path, 'wb') as f:
             async for chunk in stream:
                 await f.write(chunk)
-
-        return Image(filename=filename)
