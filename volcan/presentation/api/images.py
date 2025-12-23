@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from fastapi.responses import FileResponse
-from volcan.constants import images_url_prefix, images_dir
+from volcan.core.constants import images_url_prefix, images_dir
 
 router = APIRouter(prefix=images_url_prefix)
 

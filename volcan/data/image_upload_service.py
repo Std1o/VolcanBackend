@@ -1,7 +1,7 @@
 import os
 import typing
 import aiofiles
-from volcan.constants import images_dir
+from volcan.core.constants import images_dir
 
 
 class ImageUploadService:

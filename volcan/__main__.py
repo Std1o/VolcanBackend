@@ -1,6 +1,6 @@
 import uvicorn
 
-from volcan.settings import settings
+from volcan.core.settings import settings
 
 
 def main():

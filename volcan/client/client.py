@@ -1,7 +1,7 @@
 import asyncio
 import os
 import aiohttp
-from volcan.constants import CHUNK_SIZE
+from volcan.core.constants import CHUNK_SIZE
 
 
 async def stream_upload(file_path, url):

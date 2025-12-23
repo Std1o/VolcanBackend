@@ -1,7 +1,7 @@
 import typing
 import uuid
 import injector
-from volcan.constants import images_url_prefix
+from volcan.core.constants import images_url_prefix
 from volcan.domain.image import Image
 from volcan.domain.image_repository import ImageRepository
 
