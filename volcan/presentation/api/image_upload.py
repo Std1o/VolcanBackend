@@ -26,7 +26,7 @@ async def upload_image(
         injector_instance = injector.Injector([ImageModule()])
 
         image_repository = injector_instance.get(ImageRepository)
-        image = await image_repository.upload_image(request=request)
+        image = await image_repository.upload_image(stream=request.stream())
 
         base_url = str(request.base_url).rstrip('/')
         download_url = f"{base_url}{settings.images_url_prefix}/{image.filename}"

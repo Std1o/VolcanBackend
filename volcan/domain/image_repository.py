@@ -1,9 +1,8 @@
+import typing
 from interface import Interface, implements
-
 from volcan.domain.image import Image
-from fastapi import Request
 
 
 class ImageRepository(Interface):
-    async def upload_image(self, request: Request) -> Image:
+    async def upload_image(self, stream: typing.AsyncGenerator[bytes, None]) -> Image:
         pass

@@ -1,15 +1,13 @@
 import os
+import typing
 import uuid
-from typing import BinaryIO
-
 import aiofiles
-from fastapi import Request
 from volcan.domain.image import Image
 from volcan.settings import settings
 
 class ImageUploadService:
 
-    async def upload_image(self, request: Request) -> Image:
+    async def upload_image(self, stream: typing.AsyncGenerator[bytes, None]) -> Image:
         # Генерируем уникальное имя файла
         file_extension = "png"
         unique_filename = f"{uuid.uuid4()}.{file_extension}"
@@ -19,7 +17,7 @@ class ImageUploadService:
 
         # Читаем и сохраняем файл потоково
         async with aiofiles.open(file_path, 'wb') as f:
-            async for chunk in request.stream():
+            async for chunk in stream:
                 await f.write(chunk)
 
         return Image(filename=unique_filename)
