@@ -1,5 +1,6 @@
+# клиент для теста upload изображения
+
 import asyncio
-import os
 import aiohttp
 from volcan.core.constants import CHUNK_SIZE
 
