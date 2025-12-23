@@ -1,7 +1,10 @@
 import injector
 from fastapi import APIRouter, HTTPException, Request
+
+from volcan.core.constants import images_url_prefix
 from volcan.core.di import ImageModule
 from volcan.domain.upload_image_use_case import UploadImageUseCase
+from volcan.presentation.dto.image import Image
 from volcan.presentation.dto.upload_response import UploadResponse
 
 router = APIRouter()
@@ -21,8 +24,9 @@ async def upload_image(request: Request):
 
         upload_image_use_case = injector_instance.get(UploadImageUseCase)
         base_url = str(request.base_url).rstrip('/')
-        image = await upload_image_use_case.execute(base_url=base_url, stream=request.stream())
-        return image
+        filename = await upload_image_use_case.execute(stream=request.stream())
+        download_url = f"{base_url}{images_url_prefix}/{filename}"
+        return Image(image_url=download_url)
 
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
