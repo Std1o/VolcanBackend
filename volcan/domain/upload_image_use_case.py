@@ -1,4 +1,5 @@
 import typing
+import uuid
 
 import injector
 
@@ -15,4 +16,8 @@ class UploadImageUseCase:
             self,
             stream: typing.AsyncGenerator[bytes, None],
     ) -> Image:
-        return await self.repository.upload_image(stream)
+        # Генерируем уникальное имя файла
+        file_extension = "png"
+        filename = f"{uuid.uuid4()}.{file_extension}"
+
+        return await self.repository.upload_image(filename=filename, stream=stream)

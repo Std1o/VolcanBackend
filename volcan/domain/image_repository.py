@@ -4,5 +4,5 @@ from volcan.domain.image import Image
 
 
 class ImageRepository(Interface):
-    async def upload_image(self, stream: typing.AsyncGenerator[bytes, None]) -> Image:
+    async def upload_image(self, filename: str, stream: typing.AsyncGenerator[bytes, None]) -> Image:
         pass

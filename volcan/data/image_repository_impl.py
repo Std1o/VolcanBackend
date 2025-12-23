@@ -7,6 +7,6 @@ from fastapi import Request
 
 
 class ImageRepositoryImpl(implements(ImageRepository)):
-    async def upload_image(self, stream: typing.AsyncGenerator[bytes, None]) -> Image:
+    async def upload_image(self, filename: str, stream: typing.AsyncGenerator[bytes, None]) -> Image:
         service = ImageUploadService()
-        return await service.upload_image(stream)
+        return await service.upload_image(filename=filename,stream=stream)
