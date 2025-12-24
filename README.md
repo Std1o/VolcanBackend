@@ -18,7 +18,8 @@ Swagger – http://194.87.187.207/docs
 ## Запуск с docker compose:
 
 - Установить docker https://www.docker.com/
-- Ввести в терминал `docker compose up -d --build`
+- Открыть проект в Pycharm
+- Ввести в терминале пайчарма `docker compose up -d --build`
 - Загруженные изображения можно найти в приложении Docker, далее Containers -> volcanbackend(развернуть) -> app-1 -> Files -> code -> images -> ПКМ по файлу -> Save
 
 ## Запуск без docker compose:
