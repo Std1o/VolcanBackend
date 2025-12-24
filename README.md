@@ -1,6 +1,6 @@
 # Backend для загрузки изображений
 
-Swagger – http://192.168.1.12/docs
+Swagger – http://194.87.187.207/docs
 
 ### `POST /upload`
 
@@ -14,3 +14,16 @@ Swagger – http://192.168.1.12/docs
 - **AIOFiles** — асинхронная работа с файловой системой
 - **Python Interface** — создание интерфейсов
 - **Injector** — внедрение зависимостей
+
+## Запуск с docker compose:
+
+- Установить docker https://www.docker.com/
+- Ввести в терминал `docker compose up -d --build`
+- Загруженные изображения можно найти в приложении Docker, далее Containers -> volcanbackend(развернуть) -> app-1 -> Files -> code -> images
+
+## Запуск без docker compose:
+
+- Открыть проект в Pycharm
+- Создать в корне проекта папку images
+- Ввести в терминале пайчарма `python -m volcan`
+- Загруженные изображения будут в папке images
