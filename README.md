@@ -26,5 +26,6 @@ Swagger – http://194.87.187.207/docs
 
 - Открыть проект в Pycharm
 - Создать в корне проекта папку images
+- Ввести в терминале пайчарма `pip install -r requirements.txt`
 - Ввести в терминале пайчарма `python -m volcan`
 - Загруженные изображения будут в папке images
